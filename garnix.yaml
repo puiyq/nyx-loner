@@ -1,10 +1,13 @@
 builds:
   include:
-    # CachyOS kernel builds
-    - "packages.x86_64-linux.linux_cachyos-lto"
-    - "packages.x86_64-linux.linux_cachyos-gcc"
-    # - "packages.x86_64-linux.linux_cachyos-hardened"
-    # - "packages.x86_64-linux.linux_cachyos-lts"
-    # - "packages.x86_64-linux.linux_cachyos-rc"
-    # - "packages.x86_64-linux.linux_cachyos-server"
+    - "packages.x86_64-linux.linux_cachyos-lto-znver4"
+    - "packages.x86_64-linux.jujutsu_git"
+    - "packages.x86_64-linux.ananicy-rules-cachyos_git"
+    - "packages.x86_64-linux.mesa_git"
+    - "packages.x86_64-linux.mesa32_git"
+    - "packages.x86_64-linux.proton-cachyos_x86_64_v4"
+    - "packages.x86_64-linux.wayland-protocols_git"
+    - "packages.x86_64-linux.libdrm_git"
+    - "packages.x86_64-linux.libdrm32_git"
+        
   exclude: []
