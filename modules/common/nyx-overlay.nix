@@ -8,12 +8,6 @@
 }:
 let
   cfg = config.chaotic.nyx.overlay;
-  cacheCfg = config.chaotic.nyx.cache;
-
-  onTopOfFlakeInputs = import ../../overlays/cache-friendly.nix {
-    inherit flakes;
-    nixpkgsConfig = cfg.flakeNixpkgs.config;
-  };
 
   onTopOfUserPkgs = flakes.self.overlays.default;
 
@@ -55,19 +49,5 @@ in
       };
     };
   };
-  config = lib.mkIf cfg.enable {
-    nixpkgs.overlays =
-      if cfg.onTopOf == "flake-nixpkgs" then
-        [
-          onTopOfFlakeInputs
-        ]
-      else
-        [
-          onTopOfUserPkgs
-        ];
-
-    warnings = lib.mkIf (cfg.onTopOf == "user-pkgs" && cacheCfg.enable) [
-      ''Chaotic Nyx certainly won't hit cache when using `chaotic.nyx.overlay = "user-pkgs"`.''
-    ];
-  };
+  config = lib.mkIf cfg.enable { nixpkgs.overlays = [ onTopOfUserPkgs ]; };
 }
