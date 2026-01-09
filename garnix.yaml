@@ -10,6 +10,4 @@ builds:
     - "packages.x86_64-linux.libdrm_git"
     - "packages.x86_64-linux.libdrm32_git"
     - "packages.x86_64-linux.zed-editor_git"
-    - "packages.x86_64-linux.zed-editor-fhs_git"
-
   exclude: []
