@@ -34,7 +34,6 @@ gitOverride (current: {
         );
 
     # Nothing wrong on it, just saving compilation time for me!
-    useNextest = true;
     doCheck = false;
     doInstallCheck = false;
   };
